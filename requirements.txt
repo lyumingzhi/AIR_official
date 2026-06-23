@@ -1,0 +1,19 @@
+# Tested with /home1/mingzhi/anaconda3/envs/py310
+torch
+torchvision
+numpy
+opencv-python
+Pillow
+pandas
+openpyxl
+scikit-image
+scikit-learn
+tqdm
+matplotlib
+scipy
+lpips
+facenet-pytorch
+imageio
+ninja
+
+# pytorch_colors is vendored in ./pytorch_colors because the original code imports it directly.

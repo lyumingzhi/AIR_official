@@ -1,0 +1,25 @@
+name: air-py310
+channels:
+  - pytorch
+  - conda-forge
+  - defaults
+dependencies:
+  - python=3.10
+  - pip
+  - numpy
+  - pandas
+  - openpyxl
+  - pillow
+  - scikit-image
+  - scikit-learn
+  - scipy
+  - matplotlib
+  - tqdm
+  - imageio
+  - ninja
+  - pip:
+      - torch
+      - torchvision
+      - opencv-python
+      - lpips
+      - facenet-pytorch

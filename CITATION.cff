@@ -1,0 +1,33 @@
+cff-version: 1.2.0
+message: "If you use this AIR paper-code release, please cite the associated paper."
+title: "Transferable Attack against Face Swapping in an Extended Space"
+type: article
+authors:
+  - family-names: Lyu
+    given-names: Mingzhi
+    affiliation: "Nanyang Technological University"
+  - family-names: Huang
+    given-names: Yi
+    affiliation: "Nanyang Technological University"
+  - family-names: Xie
+    given-names: Jun
+    affiliation: "Nanyang Technological University"
+  - family-names: Zhao
+    given-names: Zihao
+    affiliation: "Nanyang Technological University"
+  - family-names: Xu
+    given-names: Hong
+    affiliation: "Nanyang Technological University"
+  - family-names: Kong
+    given-names: Kong Wai-Kin Adams
+    affiliation: "Nanyang Technological University"
+year: 2025
+conference:
+  name: "IEEE International Conference on Multimedia and Expo"
+keywords:
+  - DeepFake
+  - face swapping
+  - adversarial attack
+  - transferable attack
+  - relighting
+repository-code: "https://github.com/lyumingzhi/AIR_official"
