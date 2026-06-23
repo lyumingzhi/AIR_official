@@ -2,7 +2,7 @@
 set -euo pipefail
 
 REPO_ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
-PYTHON="${PYTHON:-/home1/mingzhi/anaconda3/envs/py310/bin/python}"
+PYTHON="${PYTHON:-python}"
 DATA_DIR="${DATA_DIR:-./data/images}"
 PAIR_START="${PAIR_START:-0}"
 PAIR_END="${PAIR_END:-100}"

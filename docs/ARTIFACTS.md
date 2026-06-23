@@ -17,14 +17,14 @@ This code tree is intentionally lightweight. It contains the cleaned AIR paper-c
 The original `advDF/ensemble_test` tree contained many historical side experiments, old `import_test_*` entrypoints, metric/evaluation scripts, temporary input/output folders, and obsolete attack variants. These are not part of the cleaned AIR paper-code path and were moved out of the release tree. The local recoverable backup is:
 
 ```text
-/home1/mingzhi/AIR_pruned_backup/advDF/ensemble_test/
+local backup outside the public release tree
 ```
 
 The public release should not include that backup directory.
 
 ## Linked or External on This Machine
 
-The following paths are expected by the code but are linked from the existing local `/home1/mingzhi/advDF` tree on this machine:
+The following paths are expected by the code but are treated as external assets in the public release:
 
 - InsightFace surrogate FR checkpoints under `advDF/insightface/recognition/arcface_torch/checkpoint/`
 - Legacy ArcFace ResNet-18 checkpoint under `advDF/ensemble_test/model_for_attack/checkpoints/`
@@ -35,9 +35,9 @@ The following paths are expected by the code but are linked from the existing lo
 Run this to verify the current machine has the expected assets and only the expected external links:
 
 ```bash
-cd /home1/mingzhi/AIR
-/home1/mingzhi/anaconda3/envs/py310/bin/python tools/check_setup.py
-/home1/mingzhi/anaconda3/envs/py310/bin/python tools/check_artifacts.py
+cd AIR
+python tools/check_setup.py
+python tools/check_artifacts.py
 ```
 
 ## Not Included
@@ -49,11 +49,11 @@ cd /home1/mingzhi/AIR
 
 ## Public Release Staging
 
-The local AIR tree contains absolute symlinks so experiments can reuse existing `/home1/mingzhi/advDF` assets. Do not publish those symlinks directly. Instead, create a clean staging tree that replaces external symlinks with small placeholder README files and writes `PUBLIC_RELEASE_MANIFEST.json`:
+A development tree may use symlinks so experiments can reuse external assets. Do not publish those symlinks directly. Instead, create a clean staging tree that replaces external symlinks with small placeholder README files and writes `PUBLIC_RELEASE_MANIFEST.json`:
 
 ```bash
-cd /home1/mingzhi/AIR
-/home1/mingzhi/anaconda3/envs/py310/bin/python tools/make_public_release.py --dest /tmp/AIR_public_release --force
+cd AIR
+python tools/make_public_release.py --dest /tmp/AIR_public_release --force
 ```
 
 The staging validator fails if any symlink, generated output, unexpected model/archive file, or oversized regular file remains in the public tree.
@@ -69,10 +69,10 @@ outputs/.gitkeep
 Run this before packaging or publishing:
 
 ```bash
-/home1/mingzhi/anaconda3/envs/py310/bin/python tools/check_hygiene.py
-/home1/mingzhi/anaconda3/envs/py310/bin/python tools/check_artifacts.py
-/home1/mingzhi/anaconda3/envs/py310/bin/python tools/make_public_release.py --dest /tmp/AIR_public_release --force
-/home1/mingzhi/anaconda3/envs/py310/bin/python tools/release_check.py --skip-setup
+python tools/check_hygiene.py
+python tools/check_artifacts.py
+python tools/make_public_release.py --dest /tmp/AIR_public_release --force
+python tools/release_check.py --skip-setup
 ```
 
 ## Responsible Use

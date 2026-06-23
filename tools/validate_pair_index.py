@@ -8,7 +8,7 @@ import pandas as pd
 
 REPO_ROOT = Path(__file__).resolve().parents[1]
 DEFAULT_PAIR_INDEX = REPO_ROOT / 'advDF' / 'ensemble_test' / 'input_pair_index.xlsx'
-DEFAULT_LOCAL_DATA = Path('/home1/mingzhi/advDF/One-Shot-Face-Swapping-on-Megapixels/CelebAMask-HQ/CelebAMask-HQ/CelebA-HQ-img')
+DEFAULT_LOCAL_DATA = REPO_ROOT / 'data' / 'images'
 REQUIRED_COLUMNS = ('pair0', 'pair1')
 VALID_IMAGE_EXTENSIONS = {'.jpg', '.jpeg', '.png', '.bmp'}
 

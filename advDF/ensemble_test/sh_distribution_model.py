@@ -164,7 +164,6 @@ class SH_distribution(nn.Module):
         super(SH_distribution,self).__init__()
         self.distribution=BNAF(9, 3, 180).to(device)
         model_checkpoint=torch.load('./advDF/DPR/normalizing_flows/results/bnaf/2022-02-12_11-45-06/checkpoint.pt')
-        # /csl/mingzhi/advDF/DPR/normalizing_flows/results/bnaf/2022-02-12_11-45-06/checkpoint.pt
         self.distribution.load_state_dict=(model_checkpoint['state_dict'])
     def forward(self,sh):
         k,logdet=self.distribution(sh)

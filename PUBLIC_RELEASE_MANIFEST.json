@@ -233,7 +233,7 @@
     "tools/smoke_import.py",
     "tools/validate_pair_index.py"
   ],
-  "created_utc": "2026-06-23T16:38:13.811358+00:00",
+  "created_utc": "2026-06-23T16:47:35.348038+00:00",
   "skipped_generated": [
     "data/images/.gitkeep",
     "outputs/.gitkeep"
@@ -242,79 +242,64 @@
   "skipped_symlinks": [
     {
       "kind": "directory",
-      "path": "advDF/AgileGAN",
-      "target": "/home1/mingzhi/advDF/AgileGAN"
+      "path": "advDF/AgileGAN"
     },
     {
       "kind": "file",
-      "path": "advDF/DPR/trained_model/trained_model_1024_03.t7",
-      "target": "/home1/mingzhi/advDF/DPR/trained_model/trained_model_1024_03.t7"
+      "path": "advDF/DPR/trained_model/trained_model_1024_03.t7"
     },
     {
       "kind": "directory",
-      "path": "advDF/Faceshifter",
-      "target": "/home1/mingzhi/advDF/Faceshifter"
+      "path": "advDF/Faceshifter"
     },
     {
       "kind": "directory",
-      "path": "advDF/Megagan",
-      "target": "/home1/mingzhi/advDF/Megagan"
+      "path": "advDF/Megagan"
     },
     {
       "kind": "directory",
-      "path": "advDF/SimSwap",
-      "target": "/home1/mingzhi/advDF/SimSwap"
+      "path": "advDF/SimSwap"
     },
     {
       "kind": "file",
-      "path": "advDF/ensemble_test/faceParsing/res/cp/79999_iter.pth",
-      "target": "/home1/mingzhi/advDF/ensemble_test/faceParsing/res/cp/79999_iter.pth"
+      "path": "advDF/ensemble_test/faceParsing/res/cp/79999_iter.pth"
     },
     {
       "kind": "file",
-      "path": "advDF/ensemble_test/model_for_attack/checkpoints/resnet18_110.pth",
-      "target": "/home1/mingzhi/advDF/ensemble_test/model_for_attack/checkpoints/resnet18_110.pth"
+      "path": "advDF/ensemble_test/model_for_attack/checkpoints/resnet18_110.pth"
     },
     {
       "kind": "file",
-      "path": "advDF/insightface/recognition/arcface_torch/checkpoint/glint360k_cosface_r100_fp16_0.1/backbone.pth",
-      "target": "/home1/mingzhi/advDF/insightface/recognition/arcface_torch/checkpoint/glint360k_cosface_r100_fp16_0.1/backbone.pth"
+      "path": "advDF/insightface/recognition/arcface_torch/checkpoint/glint360k_cosface_r100_fp16_0.1/backbone.pth"
     },
     {
       "kind": "file",
-      "path": "advDF/insightface/recognition/arcface_torch/checkpoint/glint360k_cosface_r18_fp16_0.1/backbone.pth",
-      "target": "/home1/mingzhi/advDF/insightface/recognition/arcface_torch/checkpoint/glint360k_cosface_r18_fp16_0.1/backbone.pth"
+      "path": "advDF/insightface/recognition/arcface_torch/checkpoint/glint360k_cosface_r18_fp16_0.1/backbone.pth"
     },
     {
       "kind": "file",
-      "path": "advDF/insightface/recognition/arcface_torch/checkpoint/glint360k_cosface_r34_fp16_0.1/backbone.pth",
-      "target": "/home1/mingzhi/advDF/insightface/recognition/arcface_torch/checkpoint/glint360k_cosface_r34_fp16_0.1/backbone.pth"
+      "path": "advDF/insightface/recognition/arcface_torch/checkpoint/glint360k_cosface_r34_fp16_0.1/backbone.pth"
     },
     {
       "kind": "file",
-      "path": "advDF/insightface/recognition/arcface_torch/checkpoint/glint360k_cosface_r50_fp16_0.1/backbone.pth",
-      "target": "/home1/mingzhi/advDF/insightface/recognition/arcface_torch/checkpoint/glint360k_cosface_r50_fp16_0.1/backbone.pth"
+      "path": "advDF/insightface/recognition/arcface_torch/checkpoint/glint360k_cosface_r50_fp16_0.1/backbone.pth"
     },
     {
       "kind": "file",
-      "path": "advDF/insightface/recognition/arcface_torch/checkpoint/ms1mv3_arcface_r100_fp16/backbone.pth",
-      "target": "/home1/mingzhi/advDF/insightface/recognition/arcface_torch/checkpoint/ms1mv3_arcface_r100_fp16/backbone.pth"
+      "path": "advDF/insightface/recognition/arcface_torch/checkpoint/ms1mv3_arcface_r100_fp16/backbone.pth"
     },
     {
       "kind": "file",
-      "path": "advDF/insightface/recognition/arcface_torch/checkpoint/ms1mv3_arcface_r18_fp16/backbone.pth",
-      "target": "/home1/mingzhi/advDF/insightface/recognition/arcface_torch/checkpoint/ms1mv3_arcface_r18_fp16/backbone.pth"
+      "path": "advDF/insightface/recognition/arcface_torch/checkpoint/ms1mv3_arcface_r18_fp16/backbone.pth"
     },
     {
       "kind": "file",
-      "path": "advDF/insightface/recognition/arcface_torch/checkpoint/ms1mv3_arcface_r34_fp16/backbone.pth",
-      "target": "/home1/mingzhi/advDF/insightface/recognition/arcface_torch/checkpoint/ms1mv3_arcface_r34_fp16/backbone.pth"
+      "path": "advDF/insightface/recognition/arcface_torch/checkpoint/ms1mv3_arcface_r34_fp16/backbone.pth"
     },
     {
       "kind": "file",
-      "path": "advDF/insightface/recognition/arcface_torch/checkpoint/ms1mv3_arcface_r50_fp16/backbone.pth",
-      "target": "/home1/mingzhi/advDF/insightface/recognition/arcface_torch/checkpoint/ms1mv3_arcface_r50_fp16/backbone.pth"
+      "path": "advDF/insightface/recognition/arcface_torch/checkpoint/ms1mv3_arcface_r50_fp16/backbone.pth"
     }
   ],
-  "source_root": "/home1/mingzhi/AIR"
+  "source": "AIR working tree"
 }

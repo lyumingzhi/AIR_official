@@ -25,7 +25,6 @@ EXPECTED_SYMLINKS = {
     'advDF/insightface/recognition/arcface_torch/checkpoint/ms1mv3_arcface_r50_fp16/backbone.pth',
 }
 
-EXTERNAL_PREFIX = Path('/home1/mingzhi/advDF')
 PRUNE_DIRS = {
     '.git',
     'outputs',
@@ -78,24 +77,29 @@ def iter_files_without_external_links() -> list[Path]:
     return files
 
 
+def placeholder_for_expected(rel_path: str) -> Path:
+    expected = REPO_ROOT / rel_path
+    if expected.suffix:
+        return expected.with_name(expected.name + '.README.md')
+    return expected / 'README.md'
+
+
 def check_symlinks() -> list[str]:
     errors: list[str] = []
     actual = {rel(path): path for path in REPO_ROOT.rglob('*') if path.is_symlink()}
-    missing = sorted(EXPECTED_SYMLINKS - set(actual))
     unexpected = sorted(set(actual) - EXPECTED_SYMLINKS)
-    for item in missing:
-        errors.append(f'missing expected symlink: {item}')
     for item in unexpected:
         errors.append(f'unexpected symlink: {item} -> {actual[item].readlink()}')
-    for item in sorted(EXPECTED_SYMLINKS & set(actual)):
-        path = actual[item]
-        target = path.resolve(strict=False)
-        if not path.exists():
-            errors.append(f'broken symlink: {item} -> {path.readlink()}')
-        try:
-            target.relative_to(EXTERNAL_PREFIX)
-        except ValueError:
-            errors.append(f'symlink target outside expected external tree: {item} -> {target}')
+
+    for item in sorted(EXPECTED_SYMLINKS):
+        path = actual.get(item)
+        if path is not None:
+            if not path.exists():
+                errors.append(f'broken symlink: {item} -> {path.readlink()}')
+            continue
+        placeholder = placeholder_for_expected(item)
+        if not placeholder.is_file():
+            errors.append(f'missing expected symlink or public placeholder: {item}')
     return errors
 
 

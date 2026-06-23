@@ -49,9 +49,9 @@ For transfer experiments, you can also set `self.model` to multiple target adapt
 Before claiming support for a new model:
 
 ```bash
-/home1/mingzhi/anaconda3/envs/py310/bin/python main.py --help
-/home1/mingzhi/anaconda3/envs/py310/bin/python tools/smoke_import.py
-/home1/mingzhi/anaconda3/envs/py310/bin/python main.py --source_model custom --dir /path/to/images --pair_start 0 --pair_end 1 --dry_run --fail_on_missing_pairs
+python main.py --help
+python tools/smoke_import.py
+python main.py --source_model custom --dir /path/to/images --pair_start 0 --pair_end 1 --dry_run --fail_on_missing_pairs
 ```
 
 Then run a one-pair real smoke experiment and keep the resulting `run_manifest.json` as evidence. Full paper claims require completed shards plus `tools/audit_experiment.py --require_complete`.

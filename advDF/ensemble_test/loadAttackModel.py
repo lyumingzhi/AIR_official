@@ -65,7 +65,6 @@ def load_attack_model(opt):
         retinanet=None
     if opt.lossType=='face_classification_loss' or opt.testAttackType=='ensemble_loss':
         # fairFace_net=FairFaceNet('advDF/FairFace/fair_face_models/fairface_alldata_4race_20191111.pt','advDF/FairFace/fair_face_models/fairface_alldata_4race_20191111.pt','cuda')
-        # fairFace_net=AgeGenderClassifier('advDF/age-and-gender-classification/models/age.pt','/csl/mingzhi/advDF/age-and-gender-classification/models/gender.pt')
         # fairFace_net=AgeGenderEstimator()
         # fairFace_net.eval()
         fairFace_net=Gender_classifier(512*2,2)

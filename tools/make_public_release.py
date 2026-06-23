@@ -64,13 +64,12 @@ def rel_self_and_parents(rel_path: str) -> list[str]:
     return values
 
 
-def write_placeholder(path: Path, rel_path: str, target: str, kind: str) -> None:
+def write_placeholder(path: Path, rel_path: str, kind: str) -> None:
     path.parent.mkdir(parents=True, exist_ok=True)
     path.write_text(
         '# External Asset Placeholder\n\n'
-        f'This {kind} is required by the local AIR experiment code but is not vendored in the public release.\n\n'
-        f'- Expected repository path: `{rel_path}`\n'
-        f'- Local source used during preparation: `{target}`\n\n'
+        f'This {kind} is required by the AIR experiment code but is not vendored in the public release.\n\n'
+        f'- Expected repository path: `{rel_path}`\n\n'
         'Install or link the corresponding third-party repository/checkpoint before running experiments that need it.\n'
     )
 
@@ -94,11 +93,11 @@ def copy_public_tree(dest: Path) -> dict:
         if src.is_symlink():
             target = src.readlink().as_posix()
             kind = 'directory' if src.resolve(strict=False).is_dir() else 'file'
-            skipped_symlinks.append({'path': rel_path, 'target': target, 'kind': kind})
+            skipped_symlinks.append({'path': rel_path, 'kind': kind})
             if kind == 'directory':
-                write_placeholder(dst / 'README.md', rel_path, target, kind)
+                write_placeholder(dst / 'README.md', rel_path, kind)
             else:
-                write_placeholder(dst.with_name(dst.name + '.README.md'), rel_path, target, kind)
+                write_placeholder(dst.with_name(dst.name + '.README.md'), rel_path, kind)
             continue
 
         if src.is_dir():
@@ -130,7 +129,7 @@ def copy_public_tree(dest: Path) -> dict:
 
     manifest = {
         'created_utc': datetime.now(timezone.utc).isoformat(),
-        'source_root': str(REPO_ROOT),
+        'source': 'AIR working tree',
         'copied_files': copied_files,
         'skipped_symlinks': skipped_symlinks,
         'skipped_generated': skipped_generated,

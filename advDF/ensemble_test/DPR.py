@@ -230,7 +230,6 @@ def rgb_to_lab(srgb_input):
 
         # # print(lab_pixels.permute(1,0).view(srgb.size()))
         # print(np.floor(srgb_input[0].detach().cpu().numpy().transpose(1,2,0)*255).shape)
-        # # img=cv2.cv2.imread('/csl/mingzhi/advDF/ensemble_test/dpr_test.jpg')
         # lab=cv2.cvtColor(np.floor(srgb_input[0].detach().cpu().numpy().transpose(1,2,0)*255).astype('uint8'), cv2.COLOR_BGR2LAB)
         # assert cv2.imwrite('advDF/ensemble_test/dpr_test.jpg',np.floor(srgb_input[0].detach().cpu().numpy().transpose(1,2,0)*255))
         # print(lab[:10,:10,:])

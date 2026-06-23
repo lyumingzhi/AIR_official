@@ -10,7 +10,7 @@ import sys
 from pathlib import Path
 
 REPO_ROOT = Path(__file__).resolve().parents[1]
-DEFAULT_LOCAL_DATA = Path('/home1/mingzhi/advDF/One-Shot-Face-Swapping-on-Megapixels/CelebAMask-HQ/CelebAMask-HQ/CelebA-HQ-img')
+DEFAULT_LOCAL_DATA = REPO_ROOT / 'data' / 'images'
 
 
 def run_step(label: str, command: list[str], env: dict[str, str] | None = None) -> bool:

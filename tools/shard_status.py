@@ -64,7 +64,7 @@ def main() -> int:
     parser.add_argument('--loss_type', default='ensemble_wb_test', help='lossType prefix used by result Excel files')
     parser.add_argument(
         '--data_dir',
-        default='/home1/mingzhi/advDF/One-Shot-Face-Swapping-on-Megapixels/CelebAMask-HQ/CelebAMask-HQ/CelebA-HQ-img',
+        default='./data/images',
         help='DATA_DIR value to print in planned commands',
     )
     parser.add_argument('--cuda_devices', default='0', help='CUDA_VISIBLE_DEVICES value to print in planned commands')

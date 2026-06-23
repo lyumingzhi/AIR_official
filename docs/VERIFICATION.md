@@ -4,18 +4,18 @@ This file records local verification for the AIR paper-code deployment.
 
 ## Environment
 
-- Python: `/home1/mingzhi/anaconda3/envs/py310/bin/python`
+- Python: `python`
 - Main preflight: `python tools/check_setup.py`
 - CUDA: available on this machine
-- Target model repositories and checkpoints are linked from `/home1/mingzhi/advDF`
+- Target model repositories and checkpoints are external assets; install or link them at the documented placeholder paths.
 
 ## Checks Passed
 
 ```bash
-cd /home1/mingzhi/AIR
-/home1/mingzhi/anaconda3/envs/py310/bin/python tools/check_setup.py
-/home1/mingzhi/anaconda3/envs/py310/bin/python tools/smoke_import.py
-/home1/mingzhi/anaconda3/envs/py310/bin/python main.py --help
+cd AIR
+python tools/check_setup.py
+python tools/smoke_import.py
+python main.py --help
 ```
 
 ## One-Pair Smoke Experiment
@@ -23,7 +23,7 @@ cd /home1/mingzhi/AIR
 Command:
 
 ```bash
-cd /home1/mingzhi/AIR
+cd AIR
 OUT_DIR=./outputs/smoke_pair1_png CUDA_VISIBLE_DEVICES=0 ./scripts/run_smoke_pair.sh
 ```
 

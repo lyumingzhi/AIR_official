@@ -10,7 +10,7 @@ The repository is now a paper-code style implementation for **Transferable Attac
 
 - AIA/ATI/RFA method markers are present in `advDF/ensemble_test/attacks.py`.
 - The paper-style 8-surrogate FR ensemble is centralized in `scripts/paper_air_args.sh`.
-- The default environment is `/home1/mingzhi/anaconda3/envs/py310`.
+- The default environment is `a Python 3.10 environment`.
 - Required local checkpoints and linked target repositories are checked by `tools/check_setup.py`.
 - One-pair smoke execution has been verified locally; outputs are not kept in the clean tree.
 - Sharded full-experiment execution is supported through `scripts/run_air_shard.sh`.
@@ -31,14 +31,14 @@ The repository is now a paper-code style implementation for **Transferable Attac
 ## Primary Verification Command
 
 ```bash
-cd /home1/mingzhi/AIR
-/home1/mingzhi/anaconda3/envs/py310/bin/python tools/release_check.py
+cd AIR
+python tools/release_check.py
 ```
 
 For a lighter non-GPU/non-checkpoint check:
 
 ```bash
-/home1/mingzhi/anaconda3/envs/py310/bin/python tools/release_check.py --skip-setup --skip-data-dry-run
+python tools/release_check.py --skip-setup --skip-data-dry-run
 ```
 
 ## Full Experiment Path
@@ -56,4 +56,4 @@ This tree is ready as an internal mature paper-code baseline. Public release sti
 
 ## Pruning Note
 
-Legacy `advDF/ensemble_test` side experiments, obsolete entrypoints, metric scripts, temporary folders, and old attack variants have been moved out of the AIR release tree. A local backup is kept at `/home1/mingzhi/AIR_pruned_backup/advDF/ensemble_test/` for recovery, but it is not part of the public paper-code release.
+Legacy `advDF/ensemble_test` side experiments, obsolete entrypoints, metric scripts, temporary folders, and old attack variants have been moved out of the AIR release tree. A local backup is kept at `local backup outside the public release tree` for recovery, but it is not part of the public paper-code release.

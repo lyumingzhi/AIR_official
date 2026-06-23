@@ -26,8 +26,8 @@ The code supports the full 1000-pair experiment through `scripts/run_air_full.sh
 Use:
 
 ```bash
-/home1/mingzhi/anaconda3/envs/py310/bin/python tools/shard_status.py --shard_size 100
-/home1/mingzhi/anaconda3/envs/py310/bin/python tools/aggregate_shards.py --shard_size 100
+python tools/shard_status.py --shard_size 100
+python tools/aggregate_shards.py --shard_size 100
 ```
 
 to audit and aggregate completed shard outputs.

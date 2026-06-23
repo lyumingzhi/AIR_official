@@ -7,7 +7,7 @@ This page records the local issues that were fixed while turning the project int
 The default local environment is:
 
 ```bash
-/home1/mingzhi/anaconda3/envs/py310/bin/python
+python
 ```
 
 The launchers default to this interpreter. You can override it with:
@@ -16,19 +16,19 @@ The launchers default to this interpreter. You can override it with:
 PYTHON=/path/to/python ./scripts/run_air_full.sh
 ```
 
-For a fresh conda-style environment, `environment.yml` documents the expected Python 3.10 package set. The existing `/home1/mingzhi/anaconda3/envs/py310` environment remains the verified local environment.
+For a fresh conda-style environment, `environment.yml` documents the expected Python 3.10 package set.
 
 ## Check Everything First
 
 ```bash
-cd /home1/mingzhi/AIR
-/home1/mingzhi/anaconda3/envs/py310/bin/python tools/release_check.py
+cd AIR
+python tools/release_check.py
 ```
 
 For a lighter check when large checkpoints, CUDA, or local data are unavailable:
 
 ```bash
-/home1/mingzhi/anaconda3/envs/py310/bin/python tools/release_check.py --skip-setup --skip-data-dry-run
+python tools/release_check.py --skip-setup --skip-data-dry-run
 ```
 
 ## CUDA_HOME Points to an Old CUDA
@@ -38,7 +38,7 @@ The original environment may expose a stale CUDA path such as `/usr/local/cuda-9
 If compiled extensions fail, run:
 
 ```bash
-/home1/mingzhi/anaconda3/envs/py310/bin/python tools/check_setup.py
+python tools/check_setup.py
 ```
 
 and inspect the `CUDA toolkit nvcc` section.
@@ -58,17 +58,17 @@ The launchers prepend the py310 environment `bin` directory to `PATH`, set a val
 If an extension fails with a missing `GLIBCXX_*` symbol, run:
 
 ```bash
-/home1/mingzhi/anaconda3/envs/py310/bin/python tools/check_setup.py
+python tools/check_setup.py
 ```
 
 The `libstdc++ for compiled extensions` section should list a candidate from the local CUDA installation. The launchers and `main.py` use this path automatically when present.
 
 ## Missing Checkpoints or External Repositories
 
-Large checkpoints and target-model repositories are intentionally linked from `/home1/mingzhi/advDF` on this machine. They are not copied into this cleaned code tree. Missing assets are reported by:
+Large checkpoints and target-model repositories are intentionally external to this cleaned code tree. Missing assets are reported by:
 
 ```bash
-/home1/mingzhi/anaconda3/envs/py310/bin/python tools/check_setup.py
+python tools/check_setup.py
 ```
 
 See `docs/ARTIFACTS.md` for the included/external asset policy.
@@ -78,9 +78,9 @@ See `docs/ARTIFACTS.md` for the included/external asset policy.
 Use `--dry_run` before loading models:
 
 ```bash
-/home1/mingzhi/anaconda3/envs/py310/bin/python main.py \
+python main.py \
   --source_model simswap \
-  --dir /home1/mingzhi/advDF/One-Shot-Face-Swapping-on-Megapixels/CelebAMask-HQ/CelebAMask-HQ/CelebA-HQ-img \
+  --dir ./data/images \
   --output_path ./outputs/dry_run \
   --pair_start 0 \
   --pair_end 1 \
@@ -101,5 +101,5 @@ outputs/.gitkeep
 Then run:
 
 ```bash
-/home1/mingzhi/anaconda3/envs/py310/bin/python tools/check_hygiene.py
+python tools/check_hygiene.py
 ```

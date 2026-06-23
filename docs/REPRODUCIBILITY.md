@@ -14,10 +14,10 @@ This repository is organized around the paper path for **Transferable Attack aga
 
 ## Expected Data Layout
 
-The full experiment expects aligned face images addressable by the pair indices in `advDF/ensemble_test/input_pair_index.xlsx`. For this local deployment, CelebA-HQ images were verified at:
+The full experiment expects aligned face images addressable by the pair indices in `advDF/ensemble_test/input_pair_index.xlsx`. For a portable run, place CelebA-HQ-style images at:
 
 ```bash
-/home1/mingzhi/advDF/One-Shot-Face-Swapping-on-Megapixels/CelebAMask-HQ/CelebAMask-HQ/CelebA-HQ-img
+./data/images
 ```
 
 For a portable run, place images under:
@@ -33,23 +33,23 @@ or pass another directory with `--dir`.
 Use the requested Python environment by default. See `docs/TROUBLESHOOTING.md` for runtime issues and `environment.yml` for a conda-style package specification:
 
 ```bash
-/home1/mingzhi/anaconda3/envs/py310/bin/python
+python
 ```
 
 Before running experiments, the broadest local health check is:
 
 ```bash
-cd /home1/mingzhi/AIR
-/home1/mingzhi/anaconda3/envs/py310/bin/python tools/release_check.py
+cd AIR
+python tools/release_check.py
 ```
 
 The individual checks are:
 
 ```bash
-/home1/mingzhi/anaconda3/envs/py310/bin/python tools/check_setup.py
-/home1/mingzhi/anaconda3/envs/py310/bin/python tools/check_hygiene.py
-/home1/mingzhi/anaconda3/envs/py310/bin/python tools/smoke_import.py
-/home1/mingzhi/anaconda3/envs/py310/bin/python tools/check_paper_alignment.py
+python tools/check_setup.py
+python tools/check_hygiene.py
+python tools/smoke_import.py
+python tools/check_paper_alignment.py
 ```
 
 `tools/check_setup.py` verifies packages, linked weights, target-model repos, CUDA, Ninja, and the local `libstdc++` needed by compiled PyTorch extensions. See `docs/ARTIFACTS.md` for the included/external asset policy.
@@ -59,15 +59,15 @@ The individual checks are:
 Validate the full 1000-pair index against the local image directory without loading models:
 
 ```bash
-cd /home1/mingzhi/AIR
-/home1/mingzhi/anaconda3/envs/py310/bin/python tools/validate_pair_index.py
+cd AIR
+python tools/validate_pair_index.py
 ```
 
 Argument/data validation for one selected pair without model loading:
 
 ```bash
-cd /home1/mingzhi/AIR
-/home1/mingzhi/anaconda3/envs/py310/bin/python main.py \
+cd AIR
+python main.py \
   --source_model simswap \
   --dir ./data/images \
   --output_path ./outputs/dry_run \
@@ -77,10 +77,10 @@ cd /home1/mingzhi/AIR
   --fail_on_missing_pairs
 ```
 
-One-pair end-to-end smoke run on the local machine:
+One-pair end-to-end smoke run after installing external assets:
 
 ```bash
-cd /home1/mingzhi/AIR
+cd AIR
 OUT_DIR=./outputs/smoke_pair1_png CUDA_VISIBLE_DEVICES=0 ./scripts/run_smoke_pair.sh
 ```
 
@@ -89,7 +89,7 @@ Generated result files are intentionally ignored by git and should not be kept i
 ## Full Paper-Style Run
 
 ```bash
-cd /home1/mingzhi/AIR
+cd AIR
 CUDA_VISIBLE_DEVICES=0 ./scripts/run_air_full.sh
 ```
 
@@ -100,22 +100,22 @@ The default script uses `--source_model simswap`, evaluates transfer against the
 Plan and audit shards first:
 
 ```bash
-cd /home1/mingzhi/AIR
-/home1/mingzhi/anaconda3/envs/py310/bin/python tools/shard_status.py --shard_size 100
+cd AIR
+python tools/shard_status.py --shard_size 100
 ```
 
 Use zero-based half-open pair ranges when running long experiments in recoverable chunks:
 
 ```bash
-cd /home1/mingzhi/AIR
-PAIR_START=0 PAIR_END=100 DATA_DIR=/home1/mingzhi/advDF/One-Shot-Face-Swapping-on-Megapixels/CelebAMask-HQ/CelebAMask-HQ/CelebA-HQ-img CUDA_VISIBLE_DEVICES=0 ./scripts/run_air_shard.sh
-PAIR_START=100 PAIR_END=200 DATA_DIR=/home1/mingzhi/advDF/One-Shot-Face-Swapping-on-Megapixels/CelebAMask-HQ/CelebAMask-HQ/CelebA-HQ-img CUDA_VISIBLE_DEVICES=0 ./scripts/run_air_shard.sh
+cd AIR
+PAIR_START=0 PAIR_END=100 DATA_DIR=./data/images CUDA_VISIBLE_DEVICES=0 ./scripts/run_air_shard.sh
+PAIR_START=100 PAIR_END=200 DATA_DIR=./data/images CUDA_VISIBLE_DEVICES=0 ./scripts/run_air_shard.sh
 ```
 
 Each shard writes to `outputs/air_simswap_pairs_${PAIR_START}_${PAIR_END}` by default. A completed shard also writes `run_manifest.json`, including pair range, selected/processed/missing counts, result table, and generated output files. Re-run only the failed range if a long job is interrupted. After jobs finish, run `tools/shard_status.py --status --shard_size 100` to list completed and missing ranges; manifest evidence is preferred over older Excel-only checks. When all shards are complete, merge the result tables with:
 
 ```bash
-/home1/mingzhi/anaconda3/envs/py310/bin/python tools/aggregate_shards.py --shard_size 100
+python tools/aggregate_shards.py --shard_size 100
 ```
 
 This writes `outputs/air_simswap_aggregate/aggregate_manifest.json` and `outputs/air_simswap_aggregate/ensemble_wb_testaggregate_result_loss.xlsx`. For small planned subsets or tests, pass `--total_pairs N` to limit the expected pair range.
@@ -123,7 +123,7 @@ This writes `outputs/air_simswap_aggregate/aggregate_manifest.json` and `outputs
 Before claiming the 1000-pair experiment is complete, audit shard manifests, aggregate rows, and pair order against `input_pair_index.xlsx`:
 
 ```bash
-/home1/mingzhi/anaconda3/envs/py310/bin/python tools/audit_experiment.py --shard_size 100 --require_complete
+python tools/audit_experiment.py --shard_size 100 --require_complete
 ```
 
 ## Known Scope Limits

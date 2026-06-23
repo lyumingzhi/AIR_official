@@ -1,4 +1,4 @@
-# Tested with /home1/mingzhi/anaconda3/envs/py310
+# Tested with a Python 3.10 environment
 torch
 torchvision
 numpy

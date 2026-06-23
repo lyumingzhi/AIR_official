@@ -5,16 +5,16 @@ Use this checklist before publishing or packaging the AIR paper-code tree.
 ## Required Checks
 
 ```bash
-cd /home1/mingzhi/AIR
-/home1/mingzhi/anaconda3/envs/py310/bin/python tools/release_check.py
-/home1/mingzhi/anaconda3/envs/py310/bin/python tools/check_paper_alignment.py
-/home1/mingzhi/anaconda3/envs/py310/bin/python tools/check_hygiene.py
+cd AIR
+python tools/release_check.py
+python tools/check_paper_alignment.py
+python tools/check_hygiene.py
 ```
 
 For a lighter check when checkpoints/CUDA are unavailable:
 
 ```bash
-/home1/mingzhi/anaconda3/envs/py310/bin/python tools/release_check.py --skip-setup --skip-data-dry-run
+python tools/release_check.py --skip-setup --skip-data-dry-run
 ```
 
 ## Files That Should Exist

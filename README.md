@@ -48,23 +48,23 @@ AIR/
   docs/TROUBLESHOOTING.md          # CUDA/checkpoint/runtime troubleshooting
 ```
 
-Large checkpoints and third-party target-model repos are intentionally not copied into this lightweight code tree. On this machine, target-model directories are linked from `/home1/mingzhi/advDF` so local experiments can reuse the existing assets. The legacy side-experiment files from the original `advDF/ensemble_test` tree were pruned from AIR and kept only in `/home1/mingzhi/AIR_pruned_backup` for recovery.
+Large checkpoints and third-party target-model repos are intentionally not copied into this lightweight code tree. Public releases include placeholder README files at the expected paths so users can install or link the required external assets themselves. Legacy side-experiment files from the original `advDF/ensemble_test` tree were pruned from this paper-code release.
 
 ## Environment
 
-The default environment is the one requested by the user:
+Use a Python 3.10 environment. For example:
 
 ```bash
-/home1/mingzhi/anaconda3/envs/py310/bin/python
+python
 ```
 
 Install missing Python packages only if your environment does not already provide them:
 
 ```bash
-/home1/mingzhi/anaconda3/envs/py310/bin/pip install -r requirements.txt
+python -m pip install -r requirements.txt
 ```
 
-A conda-style environment description is also provided in `environment.yml`; the verified local environment remains `/home1/mingzhi/anaconda3/envs/py310`.
+A conda-style environment description is also provided in `environment.yml`.
 
 ## Required Checkpoints
 
@@ -81,31 +81,31 @@ Place model weights at the paths expected by the scripts, or edit `scripts/run_a
 For a one-command public-code health check, run:
 
 ```bash
-cd /home1/mingzhi/AIR
-/home1/mingzhi/anaconda3/envs/py310/bin/python tools/release_check.py
+cd AIR
+python tools/release_check.py
 ```
 
 Before a full experiment, run:
 
 ```bash
-cd /home1/mingzhi/AIR
-/home1/mingzhi/anaconda3/envs/py310/bin/python tools/check_setup.py
+cd AIR
+python tools/check_setup.py
 ```
 
 The checker reports missing Python packages, required checkpoints, external target-model repos, the Ninja executable required by MegaGAN C++ extensions, and CUDA availability. For a quick import-only check after installing dependencies:
 
 ```bash
-/home1/mingzhi/anaconda3/envs/py310/bin/python tools/smoke_import.py
+python tools/smoke_import.py
 ```
 
 To make sure generated outputs, Python caches, unexpected heavy artifacts, and legacy app/backend files are not present in the public code tree:
 
 ```bash
-/home1/mingzhi/anaconda3/envs/py310/bin/python tools/check_hygiene.py
-/home1/mingzhi/anaconda3/envs/py310/bin/python tools/self_test_tools.py
-/home1/mingzhi/anaconda3/envs/py310/bin/python tools/check_artifacts.py
-/home1/mingzhi/anaconda3/envs/py310/bin/python tools/validate_pair_index.py
-/home1/mingzhi/anaconda3/envs/py310/bin/python tools/check_paper_alignment.py
+python tools/check_hygiene.py
+python tools/self_test_tools.py
+python tools/check_artifacts.py
+python tools/validate_pair_index.py
+python tools/check_paper_alignment.py
 ```
 
 ## Run
@@ -113,22 +113,22 @@ To make sure generated outputs, Python caches, unexpected heavy artifacts, and l
 From the repository root:
 
 ```bash
-cd /home1/mingzhi/AIR
+cd AIR
 ./run.sh
 ```
 
 To print shard commands and inspect completed shard outputs:
 
 ```bash
-/home1/mingzhi/anaconda3/envs/py310/bin/python tools/shard_status.py --shard_size 100
-/home1/mingzhi/anaconda3/envs/py310/bin/python tools/aggregate_shards.py --shard_size 100
-/home1/mingzhi/anaconda3/envs/py310/bin/python tools/audit_experiment.py --shard_size 100 --require_complete
+python tools/shard_status.py --shard_size 100
+python tools/aggregate_shards.py --shard_size 100
+python tools/audit_experiment.py --shard_size 100 --require_complete
 ```
 
 For a recoverable chunk of the full experiment, run a zero-based half-open pair range:
 
 ```bash
-PAIR_START=0 PAIR_END=100 DATA_DIR=/home1/mingzhi/advDF/One-Shot-Face-Swapping-on-Megapixels/CelebAMask-HQ/CelebAMask-HQ/CelebA-HQ-img CUDA_VISIBLE_DEVICES=0 ./scripts/run_air_shard.sh
+PAIR_START=0 PAIR_END=100 DATA_DIR=./data/images CUDA_VISIBLE_DEVICES=0 ./scripts/run_air_shard.sh
 ```
 
 For a verified one-pair smoke experiment on the local CelebA-HQ tree:
@@ -155,4 +155,4 @@ Known limitations are summarized in `docs/KNOWN_LIMITATIONS.md`. No final open-s
 
 ## Citation
 
-Citation metadata is provided in `CITATION.cff`. Replace the placeholder `repository-code` URL after publishing the public repository.
+Citation metadata is provided in `CITATION.cff`. The repository URL is recorded in `CITATION.cff`.
