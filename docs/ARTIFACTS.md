@@ -24,7 +24,7 @@ The public release should not include that backup directory.
 
 ## Linked or External on This Machine
 
-The following paths are expected by the code but are treated as external assets in the public release:
+The following paths are expected by the code but are treated as external assets in the public release. See `docs/MODEL_DEPENDENCIES.md` for concise upstream links and install locations.
 
 - InsightFace surrogate FR checkpoints under `advDF/insightface/recognition/arcface_torch/checkpoint/`
 - Legacy ArcFace ResNet-18 checkpoint under `advDF/ensemble_test/model_for_attack/checkpoints/`

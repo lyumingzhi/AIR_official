@@ -66,15 +66,9 @@ python -m pip install -r requirements.txt
 
 A conda-style environment description is also provided in `environment.yml`.
 
-## Required Checkpoints
+## Required External Models
 
-Place model weights at the paths expected by the scripts, or edit `scripts/run_air_full.sh` and the corresponding loader. The important paths are documented in:
-
-- `advDF/insightface/recognition/arcface_torch/checkpoint/README.md`
-- `advDF/ensemble_test/model_for_attack/checkpoints/README.md`
-- `advDF/ensemble_test/faceParsing/res/cp/README.md`
-- `advDF/DPR/trained_model/README.md`
-
+Large model weights and third-party face-swapping repositories are external. Start with `docs/MODEL_DEPENDENCIES.md` for the upstream GitHub links and expected local paths, then run `python tools/check_setup.py`. The most important external sources are InsightFace/ArcFace, SimSwap, FaceShifter-compatible weights, MegaFS/MegaGAN/StyleGAN2 assets, AgileGAN, DPR relighting weights, and the face parsing checkpoint.
 
 ## Preflight Check
 

@@ -17,6 +17,7 @@ REQUIRED_FILES = {
     'release checklist': 'docs/RELEASE_CHECKLIST.md',
     'troubleshooting guide': 'docs/TROUBLESHOOTING.md',
     'target model adapter guide': 'docs/TARGET_MODEL_ADAPTERS.md',
+    'external model dependency guide': 'docs/MODEL_DEPENDENCIES.md',
     'known limitations': 'docs/KNOWN_LIMITATIONS.md',
     'licensing status': 'docs/LICENSING.md',
     'main experiment driver': 'advDF/ensemble_test/import_test_1000.py',
