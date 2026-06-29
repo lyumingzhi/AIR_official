@@ -234,7 +234,7 @@
     "tools/smoke_import.py",
     "tools/validate_pair_index.py"
   ],
-  "created_utc": "2026-06-23T16:53:38.186015+00:00",
+  "created_utc": "2026-06-29T09:30:51.426058+00:00",
   "skipped_generated": [
     "data/images/.gitkeep",
     "outputs/.gitkeep"

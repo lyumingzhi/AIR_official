@@ -2,6 +2,8 @@
 
 This repository is a cleaned paper-code deployment for **Transferable Attack against Face Swapping in an Extended Space**. It removes the extra `app.py`/`backend.py` service layer from `AIR_official` and keeps the research code path used by the paper: AIA + ATI + RFA for transferable attacks against face swapping.
 
+Paper: https://arxiv.org/pdf/2606.25376
+
 The uploaded paper is kept at `camera_ready_icme2025_DF_defense_main_paper.pdf` for local reference.
 
 ## What Matches The Paper
